@@ -1,86 +1,97 @@
-# PvPThreatMeter
+# StealthAlert
 
-**PvPThreatMeter** is a lightweight, PvP awareness addon for World of Warcraft.  
-It shows **who is actively focusing you**, ranked by either threat score or recent damage. 
+StealthAlert is a lightweight World of Warcraft addon that detects enemy stealth activations and displays clean, center‑screen alerts with spell icons, class‑colored names, and optional chat routing. It’s designed for PvP players who want fast, reliable awareness without clutter or noise.
 
----
+## ✨ Features
 
-## Features
+- Real‑time stealth detection for:
+  - Rogue: Stealth, Vanish, Subterfuge
+  - Druid: Prowl
+  - Hunter: Camouflage, Feign Death
+  - Night Elf: Shadowmeld
+  - Mage: Invisibility, Greater Invisibility
+  - Soulshape
+- Center‑screen alert frame with spell icons
+- Class‑colored player names for instant recognition
+- Distance filtering using UnitDistanceSquared
+- Scope control (Battlegrounds, Arenas, World PvP)
+- Output routing to Chat, Party, Raid, Raid Warning, or Say
+- Movable alert frame with unlock/lock mode
+- Test alert button for quick verification
+- Reset to defaults button in the options panel
+- Low‑overhead detection engine with throttling and vanish inference
 
-- **Real‑time threat tracking**  
-  Detects swings, casts, DoTs, ranged hits, and targeting behavior.
+## 📦 Installation
 
-- **Damage Mode**  
-  Sorts enemies by recent damage taken within a configurable time window.
+1. Download the addon folder.
+2. Place it into:
 
-- **Smart class detection**  
-  Uses unitIDs, arena IDs, GUID decoding, and fallbacks for accuracy.
+```
+World of Warcraft/_retail_/Interface/AddOns/
+```
 
-- **Accurate PvP range bands**  
-  0–10, 10–20, 20–30, 30–40, 40+ yards.
+3. Restart WoW or reload your UI with `/reload`.
 
-- **Pet attribution**  
-  Automatically assigns pet damage to the correct owner.
+## ⚙️ Configuration
 
-- **Linger system**  
-  Enemies fade out smoothly after losing threat.
+Open the addon options through:
 
-- **Anchor mode**  
-  Drag, resize, and preview dummy rows for perfect placement.
+```
+Escape → Options → AddOns → StealthAlert
+```
 
-- **Customizable visuals**  
-  Bar height, spacing, icon size, text size, bar width, transparency, and more.
+### Detection Scope
+- Enable in Battlegrounds
+- Enable in Arenas
+- Enable in World PvP
 
----
+### Output Routing
+- Center‑screen alerts
+- Chat output
+- Party/Raid/Raid Warning
+- Say channel
 
-## Options Overview
+### Spell Tracking
+Toggle individual stealth‑related spells.
 
-All settings are available under:  
-**Esc → Options → AddOns → PvPThreatMeter**
+### Detection Range
+- Max detection distance slider (10–60 yards)
 
-### General
-- Enable addon  
-- Threat Mode / Damage Mode  
-- PvP Scope (Battlegrounds, Arenas, World PvP)
+### Alert Frame Controls
+- Toggle Alert Frame Move
+- Run Test Alert
+- Reset to Defaults
 
-### Visual Settings
-- Max Rows  
-- Bar Height  
-- Row Spacing  
-- Icon Size  
-- Name/Value Text Size  
-- Max Bar Width  
-- Value Text Offset  
-- Background Transparency  
+## 🧠 How It Works
 
-### Damage Mode
-- Damage Window (seconds of recent damage counted)
+StealthAlert listens to:
 
-### Threat Mode Weights
-- Target Weight  
-- Damage Weight  
-- Cast Weight  
-- Swing Weight  
-- DoT Weight  
+- UNIT_AURA for aura‑based stealth
+- COMBAT_LOG_EVENT_UNFILTERED for spell‑based stealth
+- NAME_PLATE_UNIT_REMOVED for vanish inference
 
-### Linger System
-- Linger Time  
-- Minimum Visibility  
-- Fade Duration  
-- Show Last Attackers  
-- Sticky Top Threat  
+It applies:
 
-### Utility
-- Anchor Mode (drag/resize the meter)  
-- Reset to Defaults  
+- Range filtering
+- Spell toggles
+- Scope restrictions
+- Throttling to prevent spam
 
----
+Then routes the alert to the visual frame and/or chat.
 
-## Why Use PvPThreatMeter?
+## 🧪 Slash Commands
 
-If you play battlegrounds, arenas, or world PvP, this addon gives you **instant clarity** about who is focusing you, how hard, and from where.  
-It behaves like a human would expect — not a raw combat log parser — and stays lightweight even in large fights.
+```
+/stealthalert
+/sa
+```
 
+Opens the options panel.
 
+## 📁 Project Structure
 
+- Core.lua — initialization, DB defaults, scope logic
+- Stealth.lua — detection engine
+- Alerts.lua — center‑screen alert frame
+- Options.lua — configuration UI
 
