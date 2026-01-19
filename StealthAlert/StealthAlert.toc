@@ -1,0 +1,20 @@
+## Interface: 100207
+## Title: StealthAlert
+## Notes: Stealth detection and customizable alerts for PvP
+## Author: Gravebear
+## Version: 1.0.0
+## SavedVariables: StealthAlertDB
+## IconTexture: Interface\Icons\Ability_Stealth
+
+# Bootstrap / Namespace
+StealthAlert.lua
+
+# Core System
+Core.lua
+
+# UI
+Options.lua
+Alerts.lua
+
+# Detection Engine
+Stealth.lua
