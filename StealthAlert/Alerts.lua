@@ -106,11 +106,11 @@ end
 local function FormatAlertMessage(name, spellName, distance)
     local safeName = name or "Unknown"
     
-    -- Format distance if available
+    -- Format distance if available (round to nearest 5 yards to match slider increments)
     local distStr = ""
     if distance then
-        local roundedDist = math.floor(distance + 0.5)
-        distStr = " (" .. roundedDist .. "yd)"
+        local roundedDist = math.floor((distance + 2.5) / 5) * 5
+        distStr = " (~" .. roundedDist .. "yd)"
     end
 
     if not spellName or spellName == "" then
