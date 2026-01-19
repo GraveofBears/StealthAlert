@@ -1,8 +1,7 @@
 # PvPThreatMeter
 
-**PvPThreatMeter** is a lightweight, zero‑taint PvP awareness addon for World of Warcraft.  
-It shows **who is actively focusing you**, ranked by either threat score or recent damage.  
-No targeting, no macros, no secure frames — just pure, reliable information.
+**PvPThreatMeter** is a lightweight, PvP awareness addon for World of Warcraft.  
+It shows **who is actively focusing you**, ranked by either threat score or recent damage. 
 
 ---
 
@@ -81,6 +80,7 @@ All settings are available under:
 
 If you play battlegrounds, arenas, or world PvP, this addon gives you **instant clarity** about who is focusing you, how hard, and from where.  
 It behaves like a human would expect — not a raw combat log parser — and stays lightweight even in large fights.
+
 
 
 
